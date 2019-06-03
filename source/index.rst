@@ -77,7 +77,7 @@ access_token String 获取广告种子数据接口的 Token
 
 **请求方式：**\ GET
 
-**header 信息：**\ 需设置 header 信息 “Authorization:Bearer**<access_token>**”
+**header 信息：**\ 需设置 header 信息 “Authorization:Bearer **<access_token>**”
 
 **相关参数：**
 
