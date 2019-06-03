@@ -137,14 +137,7 @@
       <li>广告种子获取API对接指引</li>
     
     
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
+
   </ul>
 
   
@@ -169,22 +162,28 @@ Key，其中包含两个重要参数：Client ID 和 Secret。获取方式：</p
 <li>在 “API方式获取” 标签页中，点击 “将密钥发送到安全邮箱”；</li>
 <li>您的 Key 将会以邮件形式发送到您指定的安全邮箱中。</li>
 </ol>
-<p>//todo 示意截图</p>
+<div class="figure">
+<a class="reference internal image-reference" href="_images/seed-pic3.png"><img alt="picture 3" src="_images/seed-pic3.png" style="width: 574.0px; height: 252.0px;" /></a>
+</div>
 </div>
 <div class="section" id="ip">
 <h3>IP白名单<a class="headerlink" href="#ip" title="Permalink to this headline">¶</a></h3>
-<p>您还需将使用的 IP 配置到白名单中，UPLTV 会屏蔽所有不在白名单中的 IP
-所发出的接口请求。配置方式： 1. 登陆 UPLTV 后台，在 “高级功能 -
-用户级数据” 页面中，找到 “获取广告种子” 功能模块； 2. 在 “API方式获取”
-标签页中，可以看到 “IP白名单管理” 编辑框； 3. 点击编辑图标进行编辑，多条
-IP 使用换行分割，限最多10条IP。</p>
-<p>//todo 示意截图</p>
+<p>您还需将使用的 IP 配置到白名单中，UPLTV 会屏蔽所有不在白名单中的 IP所发出的接口请求。配置方式：</p>
+<ol class="arabic simple">
+<li>登陆 UPLTV 后台，在 “高级功能 -用户级数据” 页面中，找到 “获取广告种子” 功能模块；</li>
+<li>在 “API方式获取”标签页中，可以看到 “IP白名单管理” 编辑框；</li>
+<li>点击编辑图标进行编辑，多条IP 使用换行分割，限最多10条IP。</li>
+</ol>
+<div class="figure">
+<a class="reference internal image-reference" href="_images/seed-pic4.png"><img alt="picture 4" src="_images/seed-pic4.png" style="width: 574.0px; height: 252.0px;" /></a>
+</div>
 </div>
 </div>
 <div class="section" id="access-token">
 <h2>2. 获取 access_token<a class="headerlink" href="#access-token" title="Permalink to this headline">¶</a></h2>
-<p><strong>请求地址：</strong><a class="reference external" href="https://open-api.upltv.com/oauth/access_token">https://open-api.upltv.com/oauth/access_token</a>
-<strong>请求方式：</strong>POST <strong>请求参数：</strong></p>
+<p><strong>请求地址：</strong><a class="reference external" href="https://open-api.upltv.com/oauth/access_token">https://open-api.upltv.com/oauth/access_token</a></p>
+<p><strong>请求方式：</strong>POST</p>
+<p><strong>请求参数：</strong></p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="18%" />
@@ -251,10 +250,10 @@ IP 使用换行分割，限最多10条IP。</p>
 </div>
 <div class="section" id="id1">
 <h2>3. 获取广告种子数据<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p><strong>请求地址：</strong><a class="reference external" href="https://open-api.upltv.com/api/v.1.0.0/app/">https://open-api.upltv.com/api/v.1.0.0/app/</a>
-<strong>&lt;upltv_pid&gt;</strong>/core/<strong>&lt;page&gt;</strong>/<strong>&lt;page_size&gt;</strong> <strong>请求方式：</strong>GET
-<strong>header 信息：</strong>需设置 header 信息 “Authorization:Bearer
-<strong>&lt;access_token&gt;</strong>” <strong>相关参数：</strong></p>
+<p><strong>请求地址：</strong><a class="reference external" href="https://open-api.upltv.com/api/v.1.0.0/app/">https://open-api.upltv.com/api/v.1.0.0/app/</a><strong>&lt;upltv_pid&gt;</strong>/core/<strong>&lt;page&gt;</strong>/<strong>&lt;page_size&gt;</strong></p>
+<p><strong>请求方式：</strong>GET</p>
+<p><strong>header 信息：</strong>需设置 header 信息 “Authorization:Bearer**&lt;access_token&gt;**”</p>
+<p><strong>相关参数：</strong></p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="17%" />

@@ -18,24 +18,31 @@ Key，其中包含两个重要参数：Client ID 和 Secret。获取方式：
 2. 在 “API方式获取” 标签页中，点击 “将密钥发送到安全邮箱”；
 3. 您的 Key 将会以邮件形式发送到您指定的安全邮箱中。
 
-//todo 示意截图
+.. figure:: img/seed-pic3.png
+   :scale: 70 %
+   :alt: picture 3
 
 IP白名单
 ^^^^^^^^
 
-您还需将使用的 IP 配置到白名单中，UPLTV 会屏蔽所有不在白名单中的 IP
-所发出的接口请求。配置方式： 1. 登陆 UPLTV 后台，在 “高级功能 -
-用户级数据” 页面中，找到 “获取广告种子” 功能模块； 2. 在 “API方式获取”
-标签页中，可以看到 “IP白名单管理” 编辑框； 3. 点击编辑图标进行编辑，多条
-IP 使用换行分割，限最多10条IP。
+您还需将使用的 IP 配置到白名单中，UPLTV 会屏蔽所有不在白名单中的 IP所发出的接口请求。配置方式：
 
-//todo 示意截图
+1. 登陆 UPLTV 后台，在 “高级功能 -用户级数据” 页面中，找到 “获取广告种子” 功能模块；
+2. 在 “API方式获取”标签页中，可以看到 “IP白名单管理” 编辑框；
+3. 点击编辑图标进行编辑，多条IP 使用换行分割，限最多10条IP。
+
+.. figure:: img/seed-pic4.png
+   :scale: 70 %
+   :alt: picture 4
 
 2. 获取 access_token
 --------------------
 
 **请求地址：**\ https://open-api.upltv.com/oauth/access_token
-**请求方式：**\ POST **请求参数：**
+
+**请求方式：**\ POST
+
+**请求参数：**
 
 ============= ====== ======== =============================================
 参数          类型   是否必填 描述说明
@@ -66,10 +73,13 @@ access_token String 获取广告种子数据接口的 Token
 3. 获取广告种子数据
 -------------------
 
-**请求地址：**\ https://open-api.upltv.com/api/v.1.0.0/app/
-**<upltv_pid>**/core/**<page>**/**<page_size>** **请求方式：**\ GET
-**header 信息：**\ 需设置 header 信息 “Authorization:Bearer
-**<access_token>**” **相关参数：**
+**请求地址：**\ https://open-api.upltv.com/api/v.1.0.0/app/**<upltv_pid>**/core/**<page>**/**<page_size>**
+
+**请求方式：**\ GET
+
+**header 信息：**\ 需设置 header 信息 “Authorization:Bearer**<access_token>**”
+
+**相关参数：**
 
 ============ ====== ======== ==============================================
 参数         类型   是否必须 描述说明
