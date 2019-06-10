@@ -52,6 +52,11 @@ client_id     String 是       通过邮件方式获取的 Client ID
 client_secret String 是       通过邮件方式获取的 Secret
 ============= ====== ======== =============================================
 
+**CURL请求示例：**
+::
+
+    curl -d 'grant_type=client_credentials&client_id=**<CLIENT_ID>**&client_secret=**<CLIENT_SECRET>**' https://open-api.upltv.com/oauth/access_token 
+
 **返回参数：**
 
 ============ ====== ===================================
@@ -73,7 +78,7 @@ access_token String 获取广告种子数据接口的 Token
 3. 获取广告种子数据
 -------------------
 
-**请求地址：**\ https://open-api.upltv.com/api/v.1.0.0/app/**<upltv_pid>**/core/**<page>**/**<page_size>**
+**请求地址：**\ https://open-api.upltv.com/api/v.1.0.0/app/**<upltv_app_id>**/core/**<page>**/**<page_size>**
 
 **请求方式：**\ GET
 
@@ -85,10 +90,15 @@ access_token String 获取广告种子数据接口的 Token
 参数         类型   是否必须 描述说明
 ============ ====== ======== ==============================================
 access_token String 是       接口 Token，获取方式见于前文
-upltv_id     -      是       应用在 UPLTV 后台的 App ID，可在应用列表中查阅
+upltv_app_id     -      是       应用在 UPLTV 后台的 App ID，可在应用列表中查阅
 page         -      是       分页页数（返回数据为分页形式）
 page_size    -      是       每页数据条数
 ============ ====== ======== ==============================================
+
+**CURL请求示例：**
+::
+
+    curl -H "Authorization:Bearer **<ACCESS_TOKEN>**" https://open-api.upltv.com/api/v.1.0.0/app/**<upltv_id>**/core/**<page>**/**<page_size>**
 
 **返回参数：**
 
