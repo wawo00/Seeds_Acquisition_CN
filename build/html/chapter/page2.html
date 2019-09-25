@@ -1,0 +1,271 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>广告种子同步推广媒体功能操作指引 &mdash; UPInteractive Document  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="广告种子获取API对接指引" href="page1.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="page1.html">广告种子获取API对接指引</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">广告种子同步推广媒体功能操作指引</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">UPInteractive Document</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>广告种子同步推广媒体功能操作指引</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>广告种子同步推广媒体功能操作指引<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>对于 UPLTV
+为您分析提供的广告种子用户数据（下称“广告种子”），您不仅可以选择以文件形式导出或通过
+API
+方式获取，还可以选择同步到指定的广告推广媒体，以便于直接用作定向用户推广执行的数据依据。
+目前仅支持以 Facebook
+广告账号作为同步目标，广告种子数据将以“广告受众”的形式同步到指定的
+Facebook 广告账号中。</p>
+<div class="section" id="facebook">
+<h2>Facebook 广告账号授权登陆<a class="headerlink" href="#facebook" title="Permalink to this headline">¶</a></h2>
+<p>首先，您需要将要作为同步目标的 Facebook 广告账号授权给 UPLTV。
+首次使用本功能时，您会在功能操作栏中看到“授权 Facebook
+账号”按钮，点击按钮开始进行授权。</p>
+<div class="section" id="step1-facebook">
+<h3>Step1 - 提供您的 Facebook 开发者账号下任意应用的 <strong>应用编号</strong> 和 <strong>应用密钥</strong>：<a class="headerlink" href="#step1-facebook" title="Permalink to this headline">¶</a></h3>
+<p>登陆 Facebook
+开发者后台(<a class="reference external" href="https://developers.facebook.com/apps/">https://developers.facebook.com/apps/</a>)，选择任意应用进入其详细配置页面。
+在左侧菜单中找到 “设置 - 基础”
+页面，进入页面后您就能在最上方位置找到该应用的 应用编号 和 应用密钥。</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/cn_1.png"><img alt="picture 3" src="../_images/cn_1.png" style="width: 1134.0px; height: 420.0px;" /></a>
+</div>
+</div>
+<div class="section" id="step2-upltv-oauth-uri">
+<h3>Step2 - 将 UPLTV 指定的链接地址设为 <strong>“有效 OAuth 跳转 URI”</strong> ：<a class="headerlink" href="#step2-upltv-oauth-uri" title="Permalink to this headline">¶</a></h3>
+<p>复制 UPLTV 提供的回调链接，再回到前一步骤中的 Facebook 开发者后台页面。
+在左侧菜单中找到 “Facebook登陆 - 设置” 页面，在页面中找到 “有效 OAuth
+跳转 URI” 输入框，将从 UPLTV 复制的链接粘贴到输入框，并保存更改。</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/cn_2.png"><img alt="picture 3" src="../_images/cn_2.png" style="width: 1134.0px; height: 560.0px;" /></a>
+</div>
+</div>
+<div class="section" id="step3-facebook">
+<h3>Step3 - 点击 “进入 Facebook 完成授权” 按钮，按照落地页面指引提醒确认提供授权即可。<a class="headerlink" href="#step3-facebook" title="Permalink to this headline">¶</a></h3>
+<p>授权成功后，UPLTV 将自动获取授权账号下允许访问的 Facebook
+广告账号列表，并定期更新。因此如果您需要将数据同步到新的广告账号中，只要在
+Facebook 后台设置这个新广告账号允许已授权开发者账号访问即可。
+您也可以更换授权账号，但该操作会导致已经创建的同步规则被全部移除，因此请谨慎操作！
+一些特殊情况下，可能会出现授权 token 失效的情况。此时，您会在 UPLTV
+后台看到明显的 “重新授权”
+的提示和操作入口，请按照流程指引重新完成授权即可。</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>创建和维护同步规则<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>完成账号授权后，您就可以开始创建自定义的同步规则了。
+您可以随意设置将任意多个产品提供的广告种子同步到任意多个 Facebook
+广告账号中。</p>
+</div>
+<div class="section" id="id3">
+<h2>一些关于同步机制的说明<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>被同步的广告种子数据将按产品归入不同的“Facebook
+广告受众”中，受众命名规则：#pid<em>data</em>accountID，其中：
+ pid：广告种子数据所属产品在 UPLTV 的产品编号
+ data：最新的同步更新日期，格式 yyyymmdd  accountID：Facebook
+广告账号ID</li>
+<li>UPLTV 会每天按照广告种子数据的更新情况，对相应的“Facebook
+广告受众”中用户数据进行更新，更新的方式为差异更新 ——
+增加新补充的种子、移除已废弃的种子。</li>
+<li>系统同步更新时间为每天19点（北京时间），同步完成时间受实际任务队列先后影响，最多不超过30分钟。</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="page1.html" class="btn btn-neutral" title="广告种子获取API对接指引" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, upltv.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            LANGUAGE:'zh-CN',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/js/custom.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

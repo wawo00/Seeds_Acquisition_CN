@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>广告种子获取API对接指引 &mdash; UPInteractive Document  documentation</title>
+  <title>广告种子操作指引 &mdash; UPInteractive Document  documentation</title>
   
 
   
@@ -28,7 +28,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="广告种子获取API对接指引" href="chapter/page1.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -77,20 +78,11 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">广告种子获取API对接指引</a><ul>
-<li><a class="reference internal" href="#key-ip">1. Key 与 IP白名单</a><ul>
-<li><a class="reference internal" href="#key">获取Key</a></li>
-<li><a class="reference internal" href="#ip">IP白名单</a></li>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="chapter/page1.html">广告种子获取API对接指引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter/page2.html">广告种子同步推广媒体功能操作指引</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#access-token">2. 获取 access_token</a></li>
-<li><a class="reference internal" href="#id1">3. 获取广告种子数据</a></li>
-</ul>
-</li>
-</ul>
-</div>
+
             
           
         </div>
@@ -134,7 +126,7 @@
     
       <li><a href="#">Docs</a> &raquo;</li>
         
-      <li>广告种子获取API对接指引</li>
+      <li>广告种子操作指引</li>
     
     
 
@@ -146,212 +138,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="api">
-<h1>广告种子获取API对接指引<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
-<p>本文档是 UPLTV 提供的 广告种子用户数据（下称“广告种子”）
-获取API的操作文档。</p>
-<div class="section" id="key-ip">
-<h2>1. Key 与 IP白名单<a class="headerlink" href="#key-ip" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="key">
-<h3>获取Key<a class="headerlink" href="#key" title="Permalink to this headline">¶</a></h3>
-<p>在对接API之前，您需要先拿到专属于贵公司的
-Key，其中包含两个重要参数：Client ID 和 Secret。获取方式：</p>
-<ol class="arabic simple">
-<li>登陆 UPLTV 后台，在 “高级功能 - 用户级数据” 页面中，找到
-“获取广告种子” 功能模块；</li>
-<li>在 “API方式获取” 标签页中，点击 “将密钥发送到安全邮箱”；</li>
-<li>您的 Key 将会以邮件形式发送到您指定的安全邮箱中。</li>
-</ol>
-<div class="figure">
-<a class="reference internal image-reference" href="_images/seed-pic3.png"><img alt="picture 3" src="_images/seed-pic3.png" style="width: 574.0px; height: 252.0px;" /></a>
-</div>
-</div>
-<div class="section" id="ip">
-<h3>IP白名单<a class="headerlink" href="#ip" title="Permalink to this headline">¶</a></h3>
-<p>您还需将使用的 IP 配置到白名单中，UPLTV 会屏蔽所有不在白名单中的 IP所发出的接口请求。配置方式：</p>
-<ol class="arabic simple">
-<li>登陆 UPLTV 后台，在 “高级功能 -用户级数据” 页面中，找到 “获取广告种子” 功能模块；</li>
-<li>在 “API方式获取”标签页中，可以看到 “IP白名单管理” 编辑框；</li>
-<li>点击编辑图标进行编辑，多条IP 使用换行分割，限最多10条IP。</li>
-</ol>
-<div class="figure">
-<a class="reference internal image-reference" href="_images/seed-pic4.png"><img alt="picture 4" src="_images/seed-pic4.png" style="width: 574.0px; height: 252.0px;" /></a>
-</div>
-</div>
-</div>
-<div class="section" id="access-token">
-<h2>2. 获取 access_token<a class="headerlink" href="#access-token" title="Permalink to this headline">¶</a></h2>
-<p><strong>请求地址：</strong><a class="reference external" href="https://open-api.upltv.com/oauth/access_token">https://open-api.upltv.com/oauth/access_token</a></p>
-<p><strong>请求方式：</strong>POST</p>
-<p><strong>请求参数：</strong></p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="18%" />
-<col width="8%" />
-<col width="11%" />
-<col width="63%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">参数</th>
-<th class="head">类型</th>
-<th class="head">是否必填</th>
-<th class="head">描述说明</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>grant_type</td>
-<td>String</td>
-<td>是</td>
-<td>客户端调用类型，固定为 <strong>client_credentials</strong></td>
-</tr>
-<tr class="row-odd"><td>client_id</td>
-<td>String</td>
-<td>是</td>
-<td>通过邮件方式获取的 Client ID</td>
-</tr>
-<tr class="row-even"><td>client_secret</td>
-<td>String</td>
-<td>是</td>
-<td>通过邮件方式获取的 Secret</td>
-</tr>
-</tbody>
-</table>
-<p><strong>返回参数：</strong></p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="23%" />
-<col width="11%" />
-<col width="66%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">参数</th>
-<th class="head">类型</th>
-<th class="head">描述</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>expires_in</td>
-<td>int</td>
-<td>当前 Token 的有效时长，以“秒”为单位</td>
-</tr>
-<tr class="row-odd"><td>access_token</td>
-<td>String</td>
-<td>获取广告种子数据接口的 Token</td>
-</tr>
-</tbody>
-</table>
-<p><strong>返回示例：</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;expires_in&quot;</span><span class="p">:</span> <span class="mi">3600</span><span class="p">,</span>
-    <span class="s2">&quot;access_token&quot;</span><span class="p">:</span> <span class="s2">&quot;xxxxxxxxxx&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="id1">
-<h2>3. 获取广告种子数据<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p><strong>请求地址：</strong><a class="reference external" href="https://open-api.upltv.com/api/v.1.0.0/app/">https://open-api.upltv.com/api/v.1.0.0/app/</a><strong>&lt;upltv_pid&gt;</strong>/core/<strong>&lt;page&gt;</strong>/<strong>&lt;page_size&gt;</strong></p>
-<p><strong>请求方式：</strong>GET</p>
-<p><strong>header 信息：</strong>需设置 header 信息 “Authorization:Bearer <strong>&lt;access_token&gt;</strong>”</p>
-<p><strong>相关参数：</strong></p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="17%" />
-<col width="8%" />
-<col width="11%" />
-<col width="64%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">参数</th>
-<th class="head">类型</th>
-<th class="head">是否必须</th>
-<th class="head">描述说明</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>access_token</td>
-<td>String</td>
-<td>是</td>
-<td>接口 Token，获取方式见于前文</td>
-</tr>
-<tr class="row-odd"><td>upltv_id</td>
-<td><ul class="first last simple">
-<li></li>
+  <div class="section" id="id1">
+<h1>广告种子操作指引<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="chapter/page1.html">广告种子获取API对接指引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter/page2.html">广告种子同步推广媒体功能操作指引</a></li>
 </ul>
-</td>
-<td>是</td>
-<td>应用在 UPLTV 后台的 App ID，可在应用列表中查阅</td>
-</tr>
-<tr class="row-even"><td>page</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
-<td>是</td>
-<td>分页页数（返回数据为分页形式）</td>
-</tr>
-<tr class="row-odd"><td>page_size</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
-<td>是</td>
-<td>每页数据条数</td>
-</tr>
-</tbody>
-</table>
-<p><strong>返回参数：</strong></p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="25%" />
-<col width="17%" />
-<col width="58%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">参数</th>
-<th class="head">类型</th>
-<th class="head">描述</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>country</td>
-<td>String</td>
-<td>用户所属国家的iso代码</td>
-</tr>
-<tr class="row-odd"><td>device</td>
-<td>String</td>
-<td>用户的设备id</td>
-</tr>
-<tr class="row-even"><td>page</td>
-<td>int</td>
-<td>当前页码</td>
-</tr>
-<tr class="row-odd"><td>pageCount</td>
-<td>int</td>
-<td>总页数</td>
-</tr>
-</tbody>
-</table>
-<p><strong>返回示例：</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
-    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;list&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">{</span>
-                <span class="s2">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;cn&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;device&quot;</span><span class="p">:</span> <span class="s2">&quot;xxxxxxxxxxxxxxxxxxxxxxx&quot;</span>
-            <span class="p">},</span>
-            <span class="p">{</span>
-                <span class="s2">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;us&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;device&quot;</span><span class="p">:</span> <span class="s2">&quot;xxxxxxxxxxxxxxxxxxxxxxx&quot;</span>
-            <span class="p">}</span>
-        <span class="p">],</span>
-        <span class="s2">&quot;page&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s2">&quot;pageCount&quot;</span><span class="p">:</span> <span class="mi">1</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
 </div>
 </div>
 
@@ -360,6 +153,13 @@ Key，其中包含两个重要参数：Client ID 和 Secret。获取方式：</p
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="chapter/page1.html" class="btn btn-neutral float-right" title="广告种子获取API对接指引" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
   
 
   <hr/>
