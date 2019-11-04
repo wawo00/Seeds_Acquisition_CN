@@ -170,28 +170,38 @@ Facebook 推广账号中。</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/04.jpg"><img alt="picture 4" src="../_images/04.jpg" style="width: 350.7px; height: 140.7px;" /></a>
 </div>
-<p>授权成功后，UPLTV 将自动获取授权账号下允许访问的 Facebook广告账号列表，并定期更新。因此如果您需要将数据同步到新的广告账号中，只要在Facebook 后台设置这个新广告账号允许已授权开发者账号访问即可。</p>
-<p>您也可以更换授权账号，但该操作会导致已经创建的同步规则被全部移除，因此请谨慎操作！</p>
-<p>一些特殊情况下，可能会出现授权 token 失效的情况。此时，您会在 UPLTV后台看到明显的 “重新授权”的提示和操作入口，请按照流程指引重新完成授权即可。</p>
-</div>
 <div class="section" id="id2">
-<h2>创建和维护同步规则<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>完成账号授权后，您就可以开始创建自定义的同步规则了。</p>
-<p>您可以随意设置将任意多个产品提供的广告种子同步到任意多个 Facebook 广告账号中。</p>
+<h3>关于账号授权的一些说明<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>授权成功后，UPLTV 将自动获取授权账号下允许访问的 Facebook
+推广账号列表，并定期更新。因此如果您需要将数据同步到新的广告账号中，只要在
+Facebook 后台设置这个新推广账号允许已授权用户账号访问即可。</p>
+<p>您也可以更换授权账号，但该操作会导致已经创建的同步规则被全部移除，因此请谨慎操作！</p>
+<p>一些特殊情况下，可能会出现授权 token 失效的情况。此时，您会在 UPLTV
+后台看到明显的 “重新授权”
+的提示和操作入口，请按照流程指引重新完成授权即可。</p>
+</div>
 </div>
 <div class="section" id="id3">
-<h2>一些关于同步机制的说明<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>创建和维护同步规则<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>完成账号授权后，您就可以开始创建自定义的同步规则了。</p>
+<p>您可以随意设置将任意多个产品提供的广告种子同步到任意多个 Facebook
+广告账号中。</p>
+</div>
+<div class="section" id="id4">
+<h2>一些关于同步机制的说明<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">被同步的广告种子数据将按产品归入不同的“Facebook广告受众”中，受众命名规则：#pid<em>data</em>accountID，其中：</p>
+<li><p class="first">被同步的广告种子数据将按产品归入不同的“Facebook 广告受众”中，受众命名规则：<strong>UART_[data]_[country]_[pid]_[type]_[accountID]</strong>，其中：</p>
 <blockquote>
-<div><p>pid：广告种子数据所属产品在 UPLTV 的产品编号</p>
-<p>data：最新的同步更新日期，格式 yyyymmdd</p>
+<div><p>data：最新的同步更新日期，格式 yyyymmdd</p>
+<p>country：广告种子数据所属国家编码（ISO 3166-1），例如：US、JP</p>
+<p>pid：广告种子数据所属产品在 UPLTV 的产品编号</p>
+<p>type：广告种子数据产生的数据维度依据，包括 revenue 和 eCPM 两种类型</p>
 <p>accountID：Facebook广告账号ID</p>
 </div></blockquote>
 </li>
-<li><p class="first">UPLTV 会每天按照广告种子数据的更新情况，对相应的“Facebook广告受众”中用户数据进行更新，更新的方式为差异更新 ——增加新补充的种子、移除已废弃的种子。</p>
+<li><p class="first">UPLTV 会每天按照广告种子数据的更新情况，对相应的“Facebook 广告受众”中用户数据进行更新，更新的方式为差异更新 —— 增加新补充的种子、移除已废弃的种子。</p>
 </li>
-<li><p class="first">系统同步更新时间为每天19点（北京时间），同步完成时间受实际任务队列先后影响，最多不超过30分钟。</p>
+<li><p class="first">系统同步更新时间为每天20点（北京时间），同步完成时间受实际任务队列先后影响，最多不超过30分钟。</p>
 </li>
 </ol>
 </div>
